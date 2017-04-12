@@ -1,4 +1,27 @@
 tasks:
+  ##################################
+  # Second level dependency images #
+  ##################################
+  second_level_dependency_images:
+    build:
+      services:
+        ubuntu:
+          image: quay.io/continuouspipe/ubuntu16.04
+          tag: latest
+
+  #################################
+  # First level dependency images #
+  #################################
+  first_level_dependency_images:
+    build:
+      services:
+        php70_apache:
+          image: quay.io/continuouspipe/php7-apache
+          tag: latest
+          environment:
+            - name: PHP_VERSION
+              value: '7.0'
+
   ###########################
   # No dependency images    #
   ###########################
